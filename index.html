@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A little something for you 🎁</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Gochi+Hand&family=Great+Vibes&family=Playfair+Display:wght@600;700&family=Schoolbell&family=Rye&family=Special+Elite&family=Abril+Fatface&family=Bungee&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Everything lives inside .stage. Each .screen is one "page". script.js switches between them. -->
+    <main class="stage">
+      <!-- ============ 1. INTRO ============ -->
+      <section class="screen active" id="intro">
+        <svg class="arc arc-top" viewBox="0 0 800 170" aria-hidden="false">
+          <path id="arcA" d="M40,150 Q400,-70 760,120" fill="none" />
+          <text>
+            <textPath href="#arcA" startOffset="50%" text-anchor="middle">
+              I have made something for you
+            </textPath>
+          </text>
+        </svg>
+
+        <img class="mascot bob" src="assets/mascot.svg" alt="" />
+
+        <p class="tilt-text">Do you wanna see it?</p>
+
+        <div class="btn-row">
+          <button class="pill" data-go="excited">Yes</button>
+          <button class="pill" data-go="nope">No</button>
+        </div>
+      </section>
+
+      <!-- ============ 1b. "NO" REACTION ============ -->
+      <section class="screen" id="nope">
+        <h1 class="big-type" data-type="HOW DARE YOU!?"></h1>
+        <img class="mascot flip" src="assets/mascot.svg" alt="" />
+        <div class="btn-row">
+          <button class="pill" data-go="intro">Try again</button>
+        </div>
+      </section>
+
+      <!-- ============ 2. ARE YOU EXCITED ============ -->
+      <section class="screen" id="excited">
+        <svg class="arc arc-top" viewBox="0 0 800 170">
+          <path id="arcB" d="M40,150 Q400,-70 760,120" fill="none" />
+          <text>
+            <textPath href="#arcB" startOffset="50%" text-anchor="middle">
+              Are you really excited?
+            </textPath>
+          </text>
+        </svg>
+        <img class="mascot bob" src="assets/mascot.svg" alt="" />
+        <div class="btn-row">
+          <button class="pill" data-go="gifts">Yes</button>
+          <button class="pill" data-go="gifts">Yes!!</button>
+        </div>
+      </section>
+
+      <!-- ============ 3. GIFT PICKER ============ -->
+      <section class="screen" id="gifts">
+        <svg class="arc arc-top small" viewBox="0 0 800 130">
+          <path id="arcC" d="M30,110 Q400,-30 770,95" fill="none" />
+          <text>
+            <textPath href="#arcC" startOffset="50%" text-anchor="middle">
+              Each gift has something for you..
+            </textPath>
+          </text>
+        </svg>
+
+        <div class="gift-row">
+          <button class="gift" data-gift="gift1" aria-label="Gift 1">
+            <img src="assets/gift.svg" alt="" /><span class="tick">✓</span>
+          </button>
+          <button class="gift" data-gift="gift2" aria-label="Gift 2">
+            <img src="assets/gift.svg" alt="" /><span class="tick">✓</span>
+          </button>
+          <button class="gift" data-gift="gift3" aria-label="Gift 3">
+            <img src="assets/gift.svg" alt="" /><span class="tick">✓</span>
+          </button>
+        </div>
+
+        <!-- EDIT HERE: typed-out hint -->
+        <p class="type-hint" id="giftHint" data-type="CLICK ON THE GIFT"></p>
+
+        <button class="next-arrow" id="giftsNext" aria-label="Next">›</button>
+        <p class="toast" id="toast">open every gift first 🎁</p>
+      </section>
+
+      <!-- ============ 4. GIFT 1 — BIRTHDAY CARD ============ -->
+      <section class="screen" id="gift1">
+        <div class="blob"></div>
+        <img class="sparkle sp1" src="assets/sparkle.svg" alt="" />
+
+        <div class="bday-text">
+          <span class="happy">HAPPY</span>
+          <h2 class="script">Birthday</h2>
+          <!-- EDIT HERE: short wish + name -->
+          <p>
+            Happy birthday! Wishing you a little bit of happiness, love,
+            laughter, and joy today always.
+          </p>
+          <div class="ribbon"><span>Keerthi Kota</span></div>
+        </div>
+
+        <figure class="polaroid-big">
+          <span class="clip"></span>
+          <!-- EDIT HERE: swap assets/birthday-photo.svg for her photo (e.g. assets/her.jpg) -->
+          <img src="assets/bdayGurll.jpeg" alt="Birthday girl" />
+        </figure>
+
+        <img class="mascot corner" src="assets/mascot.svg" alt="" />
+        <button class="heart-btn" data-go="wish">click<br />me</button>
+      </section>
+
+      <!-- ============ 4b. MAKE A WISH ============ -->
+      <section class="screen" id="wish">
+        <div class="blob"></div>
+        <h2 class="arc-wish">
+          <svg viewBox="0 -40 800 210">
+            <path id="arcW" d="M30,150 Q400,-40 770,130" fill="none" />
+            <text>
+              <textPath href="#arcW" startOffset="50%" text-anchor="middle">
+                MAKE A WISH
+              </textPath>
+            </text>
+          </svg>
+        </h2>
+
+        <div class="cake">
+          <div class="candles" id="candles"></div>
+          <img src="assets/cake.svg" alt="" />
+        </div>
+        <p class="wish-hint" id="wishHint">
+          tap the candles to blow them out 💨
+        </p>
+
+        <p class="script i-love">i love<br />you</p>
+        <img class="balloons" src="assets/balloons.svg" alt="" />
+        <img class="mascot corner small" src="assets/mascot.svg" alt="" />
+        <button class="heart-btn" data-done="gift1">click<br />me</button>
+      </section>
+
+      <!-- ============ 5. GIFT 2 — MEMORIES ============ -->
+      <section class="screen wall" id="gift2">
+        <button class="back" data-done="gift2">‹ back</button>
+        <h2
+          class="ransom"
+          id="ransom"
+          data-word="memories"
+          aria-label="Memories"
+        ></h2>
+
+        <div class="line-wrap">
+          <div class="string"></div>
+          <!-- EDIT HERE: swap each photo src (photo1.svg ... photo5.svg) with your own pictures -->
+          <figure class="hang h1">
+            <i class="peg"></i><img src="assets/photo1.jpeg" alt="" />
+          </figure>
+          <figure class="hang h2">
+            <i class="peg"></i><img src="assets/photo2.jpeg" alt="" />
+          </figure>
+          <figure class="hang h3">
+            <i class="peg"></i><img src="assets/photo3.jpeg" alt="" />
+          </figure>
+          <figure class="hang h4">
+            <i class="peg"></i><img src="assets/photo4.jpeg" alt="" />
+          </figure>
+          <figure class="hang h5">
+            <i class="peg"></i><img src="assets/photo5.jpeg" alt="" />
+          </figure>
+        </div>
+        <img class="camera" src="assets/camera.svg" alt="" />
+      </section>
+
+      <!-- ============ 6. GIFT 3 — LETTER ============ -->
+      <section class="screen letter-screen" id="gift3">
+        <div class="lace"></div>
+        <div class="letter-scroll">
+          <h2 class="script fav">My little big sister ❤️</h2>
+          <!-- EDIT HERE: write the real letter. Add as many <p> as you want, it scrolls. -->
+          <p class="dear">Dear Akka,</p>
+          <p>Happy Birthday to my favourite human!💗</p>
+          <p>
+            Honestly, I don't even know where to start. Manam entha godava
+            padathamo, entha arusthamo, entha okarini okaram irritate chesthamo
+            manake telusu. 😂 Sometimes I wonder how we even tolerate each
+            other! But at the end of the day, no matter how much we fight, there
+            is nobody in this world with whom I share a bond as pure and
+            beautiful as ours.
+          </p>
+          <p>
+            Nuvvu naaku just sister kaadhu ra, you're literally my energy drink!
+            😭❤️ Naaku bore kottina, mood off aina, or just ala khaali ga unna,
+            I'll come and disturb you for absolutely no reason. And neeku bore
+            kottina, nuvvu naa daggariki vachi nannu disturb chesthav. Mana pani
+            adhe ga! 😂 We irritate each other, fight over the smallest things,
+            scream at each other, and five minutes later we're back to being our
+            usual stupid selves. And honestly, I wouldn't trade this madness for
+            anything.
+          </p>
+          <p>
+            From childhood, there have been so many moments when I genuinely
+            felt like, "I can't get through this day without my sister."
+            Sometimes I don't even need to tell you anything. Just having you
+            around makes things feel better. Nuvvu pakkana unte chaalu, somehow
+            everything feels a little less boring and a little more okay. You
+            have no idea how many times you've made my mood better without even
+            realising it. 🥹
+          </p>
+          <p>
+            And you know what I love the most? Mana iddaram amma tho kalisi unde
+            moments. Those are genuinely my favourite memories. The three of us
+            laughing, talking, fighting over silly things, and just being
+            together. I wish we could freeze those moments sometimes. Amma
+            manalni iddarini choosthu, mana iddariki manchi jaragali, manam life
+            lo baaga settle avvali ani korukuntundi. And I really hope we make
+            her proud and give her all the happiness she deserves. ❤️
+          </p>
+          <p>
+            You're growing up so fast, and sometimes I look at you and wonder
+            how time is passing this quickly. But for me, you'll always be that
+            small, cute little girl who's somehow my elder sister. 😂❤️ Peddha
+            akka aina kuda, naaku nuvvu eppatiki naa chinna pillave. I love you
+            more than all our fights, all our silly arguments, and all the times
+            you've annoyed me put together. 🥹💗 Happy Birthday, my little big
+            sister. Nuvvu eppudu happy ga undali, nee dreams anni nijam avvali,
+            and mana bond eppatiki ilage undali.
+          </p>
+          <p>Love you endlessly, Akka. 🫂💗</p>
+          <p>
+            P.S. You're getting older, but unfortunately for you, I'm never
+            going to stop disturbing you. Happy Birthday, buddi! 😂🎂
+          </p>
+          <p class="sign script">Love you 💗</p>
+        </div>
+        <img class="mascot corner small" src="assets/mascot.svg" alt="" />
+        <button class="next-arrow" data-done="gift3" aria-label="Back to gifts">
+          ›
+        </button>
+      </section>
+
+      <!-- ============ 7. FINAL ============ -->
+      <section class="screen" id="final">
+        <div class="blob"></div>
+        <!-- EDIT HERE: closing message -->
+        <h1
+          class="big-type final-msg"
+          data-type="May all the good things you've been waiting for finally find you this year 💌"
+        ></h1>
+        <img class="mascot corner" src="assets/mascot.svg" alt="" />
+        <button class="pill replay" data-go="intro">Replay ↺</button>
+      </section>
+
+      <!-- Memory lightbox -->
+      <div class="lightbox" id="lightbox"><img alt="" /></div>
+
+      <!-- Confetti canvas (used on the cake screen) -->
+      <canvas id="confetti"></canvas>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
