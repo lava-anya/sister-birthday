@@ -199,6 +199,47 @@
     })();
   }
 
+  /* ---------- background song ---------- */
+  /* ---------- background song ---------- */
+  const bgm = document.getElementById("bgm");
+  const musicBtn = document.getElementById("musicBtn");
+  const START = 10; // song starts from this second
+  bgm.volume = 0.6; // 0 to 1
+
+  function playFromStart() {
+    const go = () => {
+      bgm.currentTime = START;
+      bgm.play().catch(() => {});
+    };
+    if (bgm.readyState >= 1)
+      go(); // file info already loaded
+    else bgm.addEventListener("loadedmetadata", go, { once: true });
+  }
+
+  // when the song ends, restart from START instead of 0:00
+  bgm.loop = false;
+  bgm.addEventListener("ended", () => {
+    bgm.currentTime = START;
+    bgm.play();
+  });
+
+  // start on the very first tap anywhere (browsers block autoplay before that)
+  document.addEventListener("click", function startOnce() {
+    playFromStart();
+    document.removeEventListener("click", startOnce);
+  });
+
+  // 🎵 button: pause / play
+  musicBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (bgm.paused) {
+      bgm.play();
+      musicBtn.classList.remove("off");
+    } else {
+      bgm.pause();
+      musicBtn.classList.add("off");
+    }
+  });
   /* ---------- go ---------- */
   show("intro");
 })();
