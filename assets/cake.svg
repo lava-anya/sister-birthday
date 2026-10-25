@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260">
+<path d="M10 150 Q10 120 40 120 H360 Q390 120 390 150 V250 H10Z" fill="#f6e3cf" stroke="#c9a37a" stroke-width="4"/>
+<path d="M10 150 Q40 185 70 150 Q100 185 130 150 Q160 185 190 150 Q220 185 250 150 Q280 185 310 150 Q340 185 370 150 L390 150 V135 H10Z" fill="#fff6ea"/>
+<path d="M10 205 H390 V250 H10Z" fill="#d83a35" opacity=".85"/>
+<path d="M90 120 V60 Q90 40 110 40 H290 Q310 40 310 60 V120Z" fill="#f6e3cf" stroke="#c9a37a" stroke-width="4"/>
+<path d="M90 70 Q115 100 140 70 Q165 100 190 70 Q215 100 240 70 Q265 100 290 70 L310 70 V55 H90Z" fill="#fff6ea"/>
+<path d="M92 95 Q120 115 148 95 Q176 115 204 95 Q232 115 260 95 Q288 115 308 95" stroke="#d83a35" stroke-width="5" fill="none"/>
+<path d="M12 175 Q40 195 68 175 Q96 195 124 175 Q152 195 180 175 Q208 195 236 175 Q264 195 292 175 Q320 195 348 175 Q370 190 388 175" stroke="#d83a35" stroke-width="5" fill="none"/>
+</svg>
